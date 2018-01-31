@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="fxgl-0.4.1-uber">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/fxgl-0.4.1-uber.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
