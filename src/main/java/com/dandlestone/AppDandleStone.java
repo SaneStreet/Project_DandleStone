@@ -1,10 +1,10 @@
-package com.DandleStone;
+package com.dandlestone;
 
 import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.settings.GameSettings;
 import com.sun.scenario.Settings;
 
-public class TestDandleStone extends GameApplication{
+public class AppDandleStone extends GameApplication{
 
     //Set the Scene
     @Override

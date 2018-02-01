@@ -1,10 +1,10 @@
-package com.DandleStone;
+package com.dandlestone;
 
 import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.settings.GameSettings;
 import com.sun.scenario.Settings;
 
-public class AppDandleStone extends GameApplication{
+public class TestDandleStone extends GameApplication{
 
     //Set the Scene
     @Override
@@ -16,7 +16,7 @@ public class AppDandleStone extends GameApplication{
     //get the Gameworld (TiledMap.json
     @Override
     protected void initGame() {
-        getGameWorld().setLevelFromMap("TestMap.json");
+        getGameWorld().setLevelFromMap("DebugMap.json");
     }
 
     //Launch the app
