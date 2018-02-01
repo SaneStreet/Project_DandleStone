@@ -27,6 +27,24 @@ public class AppDandleStoneFactory implements EntityFactory {
                 .build();
     }
 
+    @Spawns("wall")
+    public Entity newwall(SpawnData data) {
+        return Entities.builder()
+                .from(data)
+                .bbox(new HitBox(BoundingShape.box(data.<Integer>get("width"),data.<Integer>get("height"))))
+                .with(new PhysicsComponent())
+                .build();
+    }
+
+    @Spawns("ceiling")
+    public Entity newceiling(SpawnData data) {
+        return Entities.builder()
+                .from(data)
+                .bbox(new HitBox(BoundingShape.box(data.<Integer>get("width"),data.<Integer>get("height"))))
+                .with(new PhysicsComponent())
+                .build();
+    }
+
     @Spawns("player")
     public Entity newPlayer1(SpawnData data){
         PhysicsComponent physics = new PhysicsComponent();

@@ -26,21 +26,21 @@ public class TestDandleStone extends GameApplication{
         getInput().addAction(new UserAction("aleft") {
             @Override
             protected void onAction() {
-                playerOne.getControl(PlayerOneControls.class).aleft();
+                playerOne.getControl(com.dandlestone.PlayerOneControls.class).aleft();
             }
         }, KeyCode.A);
 
         getInput().addAction(new UserAction("dright") {
             @Override
             protected void onAction() {
-                playerOne.getControl(PlayerOneControls.class).dright();
+                playerOne.getControl(com.dandlestone.PlayerOneControls.class).dright();
             }
         }, KeyCode.D);
 
         getInput().addAction(new UserAction("wjump") {
             @Override
             protected void onAction() {
-                playerOne.getControl(PlayerOneControls.class).wjump();
+                playerOne.getControl(com.dandlestone.PlayerOneControls.class).wjump();
             }
         }, KeyCode.W);
     }
