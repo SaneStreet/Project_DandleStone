@@ -3,6 +3,7 @@ package com.dandlestone;
 import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.input.UserAction;
+import com.almasb.fxgl.physics.CollisionHandler;
 import com.almasb.fxgl.settings.GameSettings;
 import com.sun.scenario.Settings;
 import javafx.scene.input.KeyCode;
@@ -20,7 +21,7 @@ public class TestDandleStone extends GameApplication{
     private Entity playerOne;
 
 
-    //Get the input from the contols on a-left w-jump d-right
+    //Get the input from the controls on a-left w-jump d-right
     @Override
     protected void initInput() {
         getInput().addAction(new UserAction("aleft") {
@@ -55,6 +56,16 @@ public class TestDandleStone extends GameApplication{
 
         //spawn player one in his starting location
         playerOne = getGameWorld().spawn("player",50,180);
+    }
+
+    @Override
+    protected void initPhysics() {
+        getPhysicsWorld().addCollisionHandler(new CollisionHandler(DandlesStoneType.PLAYER, DandlesStoneType.BOTTOM) {
+            @Override
+            protected void onCollisionBegin(Entity player, Entity bottom) {
+                player.removeFromWorld();
+            }
+        });
     }
 
     //Launch the app

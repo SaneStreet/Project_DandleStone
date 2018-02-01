@@ -1,6 +1,7 @@
 package com.dandlestone;
 
 import com.almasb.fxgl.entity.*;
+import com.almasb.fxgl.entity.component.CollidableComponent;
 import com.almasb.fxgl.physics.BoundingShape;
 import com.almasb.fxgl.physics.HitBox;
 import com.almasb.fxgl.physics.PhysicsComponent;
@@ -21,6 +22,7 @@ public class AppDandleStoneFactory implements EntityFactory {
     @Spawns("platform")
     public Entity newplatform(SpawnData data) {
         return Entities.builder()
+                .type(DandlesStoneType.PLATFORM)
                 .from(data)
                 .bbox(new HitBox(BoundingShape.box(data.<Integer>get("width"),data.<Integer>get("height"))))
                 .with(new PhysicsComponent())
@@ -30,6 +32,7 @@ public class AppDandleStoneFactory implements EntityFactory {
     @Spawns("wall")
     public Entity newwall(SpawnData data) {
         return Entities.builder()
+                .type(DandlesStoneType.WALL)
                 .from(data)
                 .bbox(new HitBox(BoundingShape.box(data.<Integer>get("width"),data.<Integer>get("height"))))
                 .with(new PhysicsComponent())
@@ -39,9 +42,21 @@ public class AppDandleStoneFactory implements EntityFactory {
     @Spawns("ceiling")
     public Entity newceiling(SpawnData data) {
         return Entities.builder()
+                .type(DandlesStoneType.CEILING)
                 .from(data)
                 .bbox(new HitBox(BoundingShape.box(data.<Integer>get("width"),data.<Integer>get("height"))))
                 .with(new PhysicsComponent())
+                .build();
+    }
+
+    @Spawns("bottom")
+    public Entity newbottom(SpawnData data) {
+        return Entities.builder()
+                .type(DandlesStoneType.BOTTOM)
+                .from(data)
+                .bbox(new HitBox(BoundingShape.box(data.<Integer>get("width"),data.<Integer>get("height"))))
+                .with(new PhysicsComponent())
+                .with(new CollidableComponent(true))
                 .build();
     }
 
@@ -51,9 +66,11 @@ public class AppDandleStoneFactory implements EntityFactory {
         physics.setBodyType(BodyType.DYNAMIC);
 
         return Entities.builder()
+                .type(DandlesStoneType.PLAYER)
                 .from(data)
                 .viewFromNodeWithBBox(new Rectangle(30, 45, Color.BLUE))
                 .with(physics)
+                .with(new CollidableComponent(true))
                 .with(new PlayerOneControls())
                 .build();
     }

@@ -17,11 +17,11 @@ public class PlayerOneControls extends Control{
     }
 
     public void aleft() {
-        physics.setVelocityX(-150);
+        physics.setVelocityX(-120);
     }
 
     public void dright() {
-        physics.setVelocityX(150);
+        physics.setVelocityX(120);
     }
 
     //Jump, only from platform
