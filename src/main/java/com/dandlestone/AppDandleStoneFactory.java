@@ -4,6 +4,9 @@ import com.almasb.fxgl.entity.*;
 import com.almasb.fxgl.physics.BoundingShape;
 import com.almasb.fxgl.physics.HitBox;
 import com.almasb.fxgl.physics.PhysicsComponent;
+import com.almasb.fxgl.physics.box2d.dynamics.BodyType;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 @SetEntityFactory
 public class AppDandleStoneFactory implements EntityFactory {
@@ -21,6 +24,19 @@ public class AppDandleStoneFactory implements EntityFactory {
                 .from(data)
                 .bbox(new HitBox(BoundingShape.box(data.<Integer>get("width"),data.<Integer>get("height"))))
                 .with(new PhysicsComponent())
+                .build();
+    }
+
+    @Spawns("player")
+    public Entity newPlayer1(SpawnData data){
+        PhysicsComponent physics = new PhysicsComponent();
+        physics.setBodyType(BodyType.DYNAMIC);
+
+        return Entities.builder()
+                .from(data)
+                .viewFromNodeWithBBox(new Rectangle(30, 45, Color.BLUE))
+                .with(physics)
+                .with(new PlayerOneControls())
                 .build();
     }
 
