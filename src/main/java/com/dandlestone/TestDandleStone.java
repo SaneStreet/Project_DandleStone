@@ -13,7 +13,7 @@ public class TestDandleStone extends GameApplication{
     //Set the Scene
     @Override
     protected void initSettings(GameSettings Settings) {
-        Settings.setHeight(10*70);
+        Settings.setHeight(11*70);
         Settings.setWidth(15*70);
     }
 

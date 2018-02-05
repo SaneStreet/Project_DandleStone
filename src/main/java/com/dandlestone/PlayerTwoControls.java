@@ -17,11 +17,11 @@ public class PlayerTwoControls extends Control{
     }
 
     public void arrowleft() {
-        physicstwo.setVelocityX(-120);
+        physicstwo.setVelocityX(-150);
     }
 
     public void arrowright() {
-        physicstwo.setVelocityX(120);
+        physicstwo.setVelocityX(150);
     }
 
     //Jump, only from platform
