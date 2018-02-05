@@ -20,6 +20,9 @@ public class TestDandleStone extends GameApplication{
     //set player one
     private Entity playerOne;
 
+    //set player two
+    private Entity playertwo;
+
 
     //Get the input from the controls on a-left w-jump d-right
     @Override
@@ -44,6 +47,32 @@ public class TestDandleStone extends GameApplication{
                 playerOne.getControl(com.dandlestone.PlayerOneControls.class).wjump();
             }
         }, KeyCode.W);
+
+        //-----------------------implementing conrols for player two
+
+        getInput().addAction(new UserAction("arrowleft") {
+            @Override
+            protected void onAction() {
+                playertwo.getControl(com.dandlestone.PlayerTwoControls.class).arrowleft();
+            }
+        }, KeyCode.LEFT);
+
+        getInput().addAction(new UserAction("arrowright") {
+            @Override
+            protected void onAction() {
+                playertwo.getControl(com.dandlestone.PlayerTwoControls.class).arrowright();
+            }
+        }, KeyCode.RIGHT);
+
+        getInput().addAction(new UserAction("arrowjump") {
+            @Override
+            protected void onAction() {
+                playertwo.getControl(com.dandlestone.PlayerTwoControls.class).arrowjump();
+            }
+        }, KeyCode.UP);
+
+
+
     }
 
 
@@ -56,6 +85,10 @@ public class TestDandleStone extends GameApplication{
 
         //spawn player one in his starting location
         playerOne = getGameWorld().spawn("player",50,180);
+
+        //spawn a player two in his starting location
+
+        playertwo = getGameWorld().spawn("playertwo",100, 180);
     }
 
     @Override

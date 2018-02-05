@@ -75,6 +75,22 @@ public class AppDandleStoneFactory implements EntityFactory {
                 .build();
     }
 
+    @Spawns("playertwo")
+    public Entity newPlayer2(SpawnData data){
+        PhysicsComponent physics = new PhysicsComponent();
+        physics.setBodyType(BodyType.DYNAMIC);
+
+        return Entities.builder()
+                .type(DandlesStoneType.PLAYER)
+                .from(data)
+                .viewFromNodeWithBBox(new Rectangle(30, 45, Color.BLUE))
+                .with(physics)
+                .with(new CollidableComponent(true))
+                .with(new PlayerTwoControls())
+                .build();
+    }
+
+
 
 
 }
