@@ -1,15 +1,20 @@
 package com.dandlestone;
 
+import com.almasb.fxgl.app.GameApplication;
+import com.almasb.fxgl.entity.*;
+import com.almasb.fxgl.input.Input;
 import com.almasb.fxgl.core.math.FXGLMath;
-import com.almasb.fxgl.entity.Control;
-import com.almasb.fxgl.entity.Entity;
-import com.almasb.fxgl.entity.EntityFactory;
+import com.almasb.fxgl.input.UserAction;
 import com.almasb.fxgl.physics.CollisionHandler;
 import com.almasb.fxgl.physics.PhysicsComponent;
 import com.almasb.fxgl.texture.AnimatedTexture;
 import com.almasb.fxgl.texture.AnimationChannel;
+import javafx.scene.input.KeyCode;
 
 import javax.xml.datatype.Duration;
+
+import static com.dandlestone.DandlesStoneType.CEILING;
+import static com.dandlestone.DandlesStoneType.PLAYER;
 
 public class PlayerOneControls extends Control{
 
@@ -17,6 +22,7 @@ public class PlayerOneControls extends Control{
     private Entity entity;
     private AnimatedTexture texture;
     private AnimationChannel animIdle, animRun;
+    private TestDandleStone com;
 
     public PlayerOneControls(){
 
@@ -48,6 +54,7 @@ public class PlayerOneControls extends Control{
     public void aleft() {
         getEntity().setScaleX(1);
         physics.setVelocityX(-150);
+
     }
 
     public void dright() {
@@ -56,6 +63,7 @@ public class PlayerOneControls extends Control{
     }
 
     //Jump, only from platform
-    public void wjump() { if (physics.getVelocityY() == 0) physics.setVelocityY(-520); }
+    public void wjump() { if (physics.getVelocityY() == 0) physics.setVelocityY(-520);
+    }
 
 }

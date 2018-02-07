@@ -1,12 +1,18 @@
 package com.dandlestone;
 
 import com.almasb.fxgl.app.GameApplication;
+import com.almasb.fxgl.entity.Control;
 import com.almasb.fxgl.entity.Entity;
+import com.almasb.fxgl.input.KeyTrigger;
 import com.almasb.fxgl.input.UserAction;
 import com.almasb.fxgl.physics.CollisionHandler;
+import com.almasb.fxgl.physics.PhysicsComponent;
 import com.almasb.fxgl.settings.GameSettings;
 import com.sun.scenario.Settings;
 import javafx.scene.input.KeyCode;
+import com.almasb.fxgl.app.DSLKt;
+import javafx.scene.input.KeyEvent;
+import jdk.nashorn.internal.runtime.options.KeyValueOption;
 
 public class TestDandleStone extends GameApplication{
 
@@ -15,6 +21,7 @@ public class TestDandleStone extends GameApplication{
     protected void initSettings(GameSettings Settings) {
         Settings.setHeight(11*70);
         Settings.setWidth(15*70);
+        //Settings.setSingleStep(true);
     }
 
     //set player one
@@ -22,7 +29,6 @@ public class TestDandleStone extends GameApplication{
 
     //set player two
     private Entity playertwo;
-
 
     //Get the input from the controls on a-left w-jump d-right
     @Override
@@ -44,10 +50,15 @@ public class TestDandleStone extends GameApplication{
         getInput().addAction(new UserAction("wjump") {
             @Override
             protected void onAction() {
-                playerOne.getControl(com.dandlestone.PlayerOneControls.class).wjump();
-            }
+                playerOne.getControl(com.dandlestone.PlayerOneControls.class).wjump(); }
         }, KeyCode.W);
 
+        /*DSLKt.onKeyDown(KeyCode.I, "update", new Runnable() {
+                    public void run() {
+                        stepLoop();
+                    }
+                }
+        );*/
         //-----------------------implementing conrols for player two
 
         getInput().addAction(new UserAction("arrowleft") {
@@ -70,13 +81,7 @@ public class TestDandleStone extends GameApplication{
                 playertwo.getControl(com.dandlestone.PlayerTwoControls.class).arrowjump();
             }
         }, KeyCode.UP);
-
-
-
     }
-
-
-
 
     //get the Gameworld (TiledMap.json
     @Override
@@ -99,6 +104,13 @@ public class TestDandleStone extends GameApplication{
                 player.removeFromWorld();
             }
         });
+        /*getPhysicsWorld().addCollisionHandler(new CollisionHandler(DandlesStoneType.PLAYER, DandlesStoneType.CEILING) {
+            @Override
+            protected void onCollisionBegin(Entity player, Entity ceiling) {
+
+            }
+        });
+        */
     }
 
     //Launch the app
