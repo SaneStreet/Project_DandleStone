@@ -49,7 +49,7 @@ public class TestDandleStone extends GameApplication{
 
         getInput().addAction(new UserAction("wjump") {
             @Override
-            protected void onAction() {
+            protected void onActionBegin() { //onActionBegin() for at man skal trykke for hver gang.
                 playerOne.getControl(com.dandlestone.PlayerOneControls.class).wjump(); }
         }, KeyCode.W);
 
