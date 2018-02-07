@@ -77,7 +77,7 @@ public class TestDandleStone extends GameApplication{
 
         getInput().addAction(new UserAction("arrowjump") {
             @Override
-            protected void onAction() {
+            protected void onActionBegin() { //onActionBegin() for at man skal trykke for hver gang.
                 playertwo.getControl(com.dandlestone.PlayerTwoControls.class).arrowjump();
             }
         }, KeyCode.UP);
