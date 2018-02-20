@@ -54,7 +54,6 @@ public class PlayerOneControls extends Control{
     public void aleft() {
         getEntity().setScaleX(1);
         physics.setVelocityX(-150);
-
     }
 
     public void dright() {

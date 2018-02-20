@@ -2,7 +2,9 @@ package com.dandlestone;
 
 import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.entity.Control;
+import com.almasb.fxgl.entity.Entities;
 import com.almasb.fxgl.entity.Entity;
+import com.almasb.fxgl.entity.EntityFactory;
 import com.almasb.fxgl.input.KeyTrigger;
 import com.almasb.fxgl.input.UserAction;
 import com.almasb.fxgl.physics.CollisionHandler;

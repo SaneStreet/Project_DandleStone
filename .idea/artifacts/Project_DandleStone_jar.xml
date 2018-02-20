@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Project_DandleStone:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Project_DandleStone_jar</output-path>
+    <root id="archive" name="Project_DandleStone.jar">
+      <element id="module-output" name="Project_DandleStone" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/fxgl-0.4.1-uber.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
