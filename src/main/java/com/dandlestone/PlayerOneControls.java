@@ -1,20 +1,10 @@
 package com.dandlestone;
 
-import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.entity.*;
-import com.almasb.fxgl.input.Input;
 import com.almasb.fxgl.core.math.FXGLMath;
-import com.almasb.fxgl.input.UserAction;
-import com.almasb.fxgl.physics.CollisionHandler;
 import com.almasb.fxgl.physics.PhysicsComponent;
 import com.almasb.fxgl.texture.AnimatedTexture;
 import com.almasb.fxgl.texture.AnimationChannel;
-import javafx.scene.input.KeyCode;
-
-import javax.xml.datatype.Duration;
-
-import static com.dandlestone.DandlesStoneType.CEILING;
-import static com.dandlestone.DandlesStoneType.PLAYER;
 
 public class PlayerOneControls extends Control{
 
@@ -44,9 +34,7 @@ public class PlayerOneControls extends Control{
         texture.setAnimationChannel(isMoving() ? animRun : animIdle);
 
     }
-{
 
-    }
     private boolean isMoving() {
         return FXGLMath.abs(physics.getVelocityX()) > 0;
     }
@@ -65,4 +53,9 @@ public class PlayerOneControls extends Control{
     public void wjump() { if (physics.getVelocityY() == 0) physics.setVelocityY(-520);
     }
 
+    //remove Entity from world
+    public void die(){
+        getEntity().removeFromWorld();
+
+    }
 }

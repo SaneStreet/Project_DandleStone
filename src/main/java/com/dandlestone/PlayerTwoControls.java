@@ -3,8 +3,6 @@ package com.dandlestone;
 import com.almasb.fxgl.core.math.FXGLMath;
 import com.almasb.fxgl.entity.Control;
 import com.almasb.fxgl.entity.Entity;
-import com.almasb.fxgl.entity.EntityFactory;
-import com.almasb.fxgl.physics.CollisionHandler;
 import com.almasb.fxgl.physics.PhysicsComponent;
 import com.almasb.fxgl.texture.AnimatedTexture;
 import com.almasb.fxgl.texture.AnimationChannel;
@@ -38,17 +36,22 @@ public class PlayerTwoControls extends Control{
         texture.setAnimationChannel(isMoving() ? animRun : animIdle);
     }
 
+    //walk left with LEFT-arrow
     public void arrowleft() {
         getEntity().setScaleX(1);
         physicstwo.setVelocityX(-150);
     }
 
+    //walk right with RIGHT-arrow
     public void arrowright() {
         getEntity().setScaleX(-1);
         physicstwo.setVelocityX(150);
     }
 
-    //Jump, only from platform
+    //Jump, only from platform with UP-arrow
     public void arrowjump() { if (physicstwo.getVelocityY() == 0) physicstwo.setVelocityY(-520); }
 
+    public void die(){
+        getEntity().removeFromWorld();
+    }
 }

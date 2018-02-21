@@ -2,16 +2,14 @@ package com.dandlestone;
 
 import com.almasb.fxgl.entity.*;
 import com.almasb.fxgl.entity.component.CollidableComponent;
+import com.almasb.fxgl.entity.component.HealthComponent;
 import com.almasb.fxgl.physics.BoundingShape;
 import com.almasb.fxgl.physics.HitBox;
 import com.almasb.fxgl.physics.PhysicsComponent;
 import com.almasb.fxgl.physics.box2d.dynamics.BodyType;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 
 @SetEntityFactory
 public class AppDandleStoneFactory implements EntityFactory {
-
 
     @Spawns("project")
     public Entity newproject(SpawnData data){
@@ -19,6 +17,7 @@ public class AppDandleStoneFactory implements EntityFactory {
                 .build();
     }
 
+    //spawn Platforms
     @Spawns("platform")
     public Entity newplatform(SpawnData data) {
         return Entities.builder()
@@ -29,6 +28,7 @@ public class AppDandleStoneFactory implements EntityFactory {
                 .build();
     }
 
+    //spawns invisible walls
     @Spawns("wall")
     public Entity newwall(SpawnData data) {
         return Entities.builder()
@@ -39,6 +39,7 @@ public class AppDandleStoneFactory implements EntityFactory {
                 .build();
     }
 
+    //spawns invisible ceiling
     @Spawns("ceiling")
     public Entity newceiling(SpawnData data) {
         return Entities.builder()
@@ -50,6 +51,7 @@ public class AppDandleStoneFactory implements EntityFactory {
                 .build();
     }
 
+    //spawns invisible bottom
     @Spawns("bottom")
     public Entity newbottom(SpawnData data) {
         return Entities.builder()
@@ -61,7 +63,8 @@ public class AppDandleStoneFactory implements EntityFactory {
                 .build();
     }
 
-    @Spawns("player")
+    //spawns Player One
+    @Spawns("playerOne")
     public Entity newPlayer1(SpawnData data){
         PhysicsComponent physics = new PhysicsComponent();
         physics.setBodyType(BodyType.DYNAMIC);
@@ -74,10 +77,12 @@ public class AppDandleStoneFactory implements EntityFactory {
                 .with(physics)
                 .with(new CollidableComponent(true))
                 .with(new PlayerOneControls())
+                .with(new HealthComponent(3))
                 .build();
     }
 
-    @Spawns("playertwo")
+    //spawns Player Two
+    @Spawns("playerTwo")
     public Entity newPlayer2(SpawnData data){
         PhysicsComponent physics = new PhysicsComponent();
         physics.setBodyType(BodyType.DYNAMIC);
@@ -90,10 +95,7 @@ public class AppDandleStoneFactory implements EntityFactory {
                 .with(physics)
                 .with(new CollidableComponent(true))
                 .with(new PlayerTwoControls())
+                .with(new HealthComponent(5))
                 .build();
     }
-
-
-
-
 }

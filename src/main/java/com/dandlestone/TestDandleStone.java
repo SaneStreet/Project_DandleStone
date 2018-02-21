@@ -1,20 +1,11 @@
 package com.dandlestone;
 
 import com.almasb.fxgl.app.GameApplication;
-import com.almasb.fxgl.entity.Control;
-import com.almasb.fxgl.entity.Entities;
 import com.almasb.fxgl.entity.Entity;
-import com.almasb.fxgl.entity.EntityFactory;
-import com.almasb.fxgl.input.KeyTrigger;
 import com.almasb.fxgl.input.UserAction;
 import com.almasb.fxgl.physics.CollisionHandler;
-import com.almasb.fxgl.physics.PhysicsComponent;
 import com.almasb.fxgl.settings.GameSettings;
-import com.sun.scenario.Settings;
 import javafx.scene.input.KeyCode;
-import com.almasb.fxgl.app.DSLKt;
-import javafx.scene.input.KeyEvent;
-import jdk.nashorn.internal.runtime.options.KeyValueOption;
 
 public class TestDandleStone extends GameApplication{
 
@@ -79,23 +70,22 @@ public class TestDandleStone extends GameApplication{
 
         getInput().addAction(new UserAction("arrowjump") {
             @Override
-            protected void onActionBegin() { //onActionBegin() for at man skal trykke for hver gang.
+            protected void onAction() {
                 playertwo.getControl(com.dandlestone.PlayerTwoControls.class).arrowjump();
             }
         }, KeyCode.UP);
     }
 
-    //get the Gameworld (TiledMap.json
+    //get the Gameworld (TiledMap.json)
     @Override
     protected void initGame() {
         getGameWorld().setLevelFromMap("DebugMap.json");
 
         //spawn player one in his starting location
-        playerOne = getGameWorld().spawn("player",50,180);
+        playerOne = getGameWorld().spawn("playerOne",50,180);
 
         //spawn a player two in his starting location
-
-        playertwo = getGameWorld().spawn("playertwo",100, 180);
+        playertwo = getGameWorld().spawn("playerTwo",100, 180);
     }
 
     @Override
@@ -106,13 +96,6 @@ public class TestDandleStone extends GameApplication{
                 player.removeFromWorld();
             }
         });
-        /*getPhysicsWorld().addCollisionHandler(new CollisionHandler(DandlesStoneType.PLAYER, DandlesStoneType.CEILING) {
-            @Override
-            protected void onCollisionBegin(Entity player, Entity ceiling) {
-
-            }
-        });
-        */
     }
 
     //Launch the app
