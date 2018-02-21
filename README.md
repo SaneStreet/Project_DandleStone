@@ -4,9 +4,9 @@ This repository contains our first game, a 2D platformer. It is developed with J
 It's a battlemap 1 vs 1. The game is still under development, where we intend to implement health, damage and weapons to each player so 
 that they can fight each other.
 ## Instructions
-Player one controls: W, A, S, D.
+Player one controls: W, A, D.
 
-Player two controls: Arrowkeys UP, DOWN, LEFT, RIGHT.
+Player two controls: Arrowkeys UP, LEFT, RIGHT.
 
 ## Credits
 #### Authors
